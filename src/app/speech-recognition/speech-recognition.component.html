@@ -1,0 +1,23 @@
+<div class="container mt-5">
+    <h2 class="text-center">Speech to Text Converter</h2>
+  
+    <div class="text-center mt-4">
+      <button class="btn btn-primary me-3" (click)="startRecording()" [disabled]="isRecording">
+        Start Recording
+      </button>
+      <button class="btn btn-danger" (click)="stopRecording()" [disabled]="!isRecording">
+        Stop Recording
+      </button>
+    </div>
+  
+    <!-- Voice Meter -->
+    <div class="voice-meter mt-4" *ngIf="isRecording">
+      <div *ngFor="let bar of voiceMeterBars" [style.height.%]="bar" class="meter-bar"></div>
+    </div>
+  
+    <div class="mt-4">
+      <label for="transcript" class="form-label">Transcript:</label>
+      <textarea id="transcript" class="form-control" rows="5" [(ngModel)]="transcript"></textarea>
+    </div>
+  </div>
+  
